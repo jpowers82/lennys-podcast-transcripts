@@ -104,6 +104,36 @@ print(f"Title: {metadata['title']}")
 
 This archive contains **269 transcripts** from Lenny's Podcast episodes.
 
+## Keeping Your Fork Updated
+
+This repo is a fork of the community-maintained [ChatPRD/lennys-podcast-transcripts](https://github.com/ChatPRD/lennys-podcast-transcripts). New episodes are added there by contributors over time.
+
+### Setup (one-time)
+
+After cloning your fork, add the upstream remote:
+
+```bash
+git remote add upstream https://github.com/ChatPRD/lennys-podcast-transcripts.git
+```
+
+### Syncing with upstream
+
+Run the included sync script to pull new episodes from upstream into your fork:
+
+```bash
+./scripts/sync-from-upstream.sh
+```
+
+This fetches the latest from upstream, merges it locally, and pushes to your fork. After syncing, run `./scripts/build-index.sh` to index any new episodes.
+
+### Manual sync (without the script)
+
+```bash
+git fetch upstream
+git merge upstream/main --ff-only
+git push origin main
+```
+
 ## Data Sources
 
 - **Transcripts**: Sourced from the Lenny's Podcast Transcripts Archive
